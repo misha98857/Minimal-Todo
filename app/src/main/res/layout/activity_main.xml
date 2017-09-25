@@ -1,75 +1,87 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!--<include layout="@layout/base_toolbar"/>-->
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/myConstraintLayout"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:gravity="center">
+
+
+    <include layout="@layout/base_toolbar" />
+
 
     <!--<include layout="@layout/base_toolbar"/>-->
-    <android.support.design.widget.CoordinatorLayout
-            android:id="@+id/myCoordinatorLayout"
-            android:layout_width="match_parent"
-            android:gravity="center"
-            android:layout_height="match_parent"
-            >
 
-        <LinearLayout
-            android:id="@+id/toDoEmptyView"
-            android:orientation="vertical"
-            android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-            <ImageView
-                android:src="@drawable/empty_view_bg"
-                android:layout_width="100dp"
-                android:layout_height="100dp" />
-            <TextView
-                android:text="@string/no_to_dos"
-                android:textColor="@color/secondary_text"
-                android:textSize="16sp"
-                android:paddingTop="4dp"
-                android:paddingBottom="8dp"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+    <!--</android.support.design.widget.AppBarLayout>-->
 
-        </LinearLayout>
 
-        <android.support.design.widget.AppBarLayout
+    <com.example.avjindersinghsekhon.minimaltodo.RecyclerViewEmptySupport
+        android:id="@+id/toDoRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/addToDoItemFAB"
+        android:layout_width="0dp"
+        android:layout_height="551dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="24dp"
+        android:src="@drawable/ic_add_white_24dp"
+        app:layout_anchor="@id/myConstraintLayout"
+        app:layout_anchorGravity="bottom|right|end"
+        app:layout_behavior="com.example.avjindersinghsekhon.minimaltodo.ScrollingFABBehaviour"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_conversion_absoluteHeight="0dp"
+        tools:layout_conversion_absoluteWidth="0dp"
+        tools:layout_conversion_absoluteX="192dp"
+        tools:layout_conversion_absoluteY="567dp" />
+
+    <LinearLayout
+        android:id="@+id/toDoEmptyView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintTop_creator="1">
+
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="@string/emty_view"
+            android:src="@drawable/empty_view_bg" />
+
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:elevation="0dp"
-            android:elevation="0dp"
-            >
+            android:gravity="center"
+            android:paddingBottom="8dp"
+            android:paddingTop="4dp"
+            android:text="@string/no_to_dos"
+            android:textColor="@color/secondary_text"
+            android:textSize="16sp" />
 
-            <include layout="@layout/base_toolbar"/>
-        </android.support.design.widget.AppBarLayout>
-
-            <!--<include layout="@layout/base_toolbar"/>-->
-
-
-        <!--</android.support.design.widget.AppBarLayout>-->
+    </LinearLayout>
 
 
-            <com.example.avjindersinghsekhon.minimaltodo.RecyclerViewEmptySupport
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                android:id="@+id/toDoRecyclerView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-
-
-        <android.support.design.widget.FloatingActionButton
-            android:src="@drawable/ic_add_white_24dp"
-            android:id="@+id/addToDoItemFAB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            app:layout_anchor="@id/myCoordinatorLayout"
-            app:layout_anchorGravity="bottom|right|end"
-            app:layout_behavior="com.example.avjindersinghsekhon.minimaltodo.ScrollingFABBehaviour"
-            />
-
-
-    </android.support.design.widget.CoordinatorLayout>
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

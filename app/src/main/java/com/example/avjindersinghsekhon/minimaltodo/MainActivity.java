@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerViewEmptySupport mRecyclerView;
     private FloatingActionButton mAddToDoItemFAB;
     private ArrayList<ToDoItem> mToDoItemsArrayList;
-    private CoordinatorLayout mCoordLayout;
+    private ConstraintLayout mCoordLayout;
     public static final String TODOITEM = "com.avjindersinghsekhon.com.avjindersinghsekhon.minimaltodo.MainActivity";
     private BasicListAdapter adapter;
     private static final int REQUEST_ID_TODO_ITEM = 100;
@@ -215,7 +216,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        mCoordLayout = (CoordinatorLayout)findViewById(R.id.myCoordinatorLayout);
+        mCoordLayout = (ConstraintLayout)findViewById(R.id.myConstraintLayout);
         mAddToDoItemFAB = (FloatingActionButton)findViewById(R.id.addToDoItemFAB);
 
         mAddToDoItemFAB.setOnClickListener(new View.OnClickListener() {
